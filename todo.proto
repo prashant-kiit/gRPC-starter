@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package todoPackage;
+
+service Todo {
+    rpc createTodo (TodoText) returns (TodoItem);
+    rpc updateTodoById (TodoItem) returns (TodoItem);
+    rpc readTodos (Void) returns (stream TodoItem);
+    rpc readTodoById (TodoId) returns (TodoItem);
+    rpc deleteTodoById (TodoId) returns (Void);
+    rpc StreamTodos (stream TodoItem) returns (TodoSummary);
+}
+
+message Void {}
+
+message TodoId {
+    int32 id = 1;
+}
+
+message TodoText {
+    string text = 1;
+}
+
+message TodoItem {
+    int32 id = 1;
+    string text = 2;
+}
+
+message Todos {
+    repeated TodoItem todos = 1;
+}
+
+message TodoSummary {
+    int32 total = 1;
+}
+  

@@ -5,7 +5,7 @@ start your gRPC project
 1. apt install protobuf
 2. npm install -g protoc-gen-grpc-web
 3. npm install -g protoc-gen-js
-4. npm install grpc-web
+4. npm install grpc-web // it is proxy for grpc as grpc is not supported by all browsers
 5. npm install google-protobuf
 6. protoc -I=. todo.proto \
   --js_out=import_style=commonjs:./generated \
